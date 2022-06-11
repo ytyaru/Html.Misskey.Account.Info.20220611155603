@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head prefix="og: https://ogp.me/ns# article: https://ogp.me/ns/article#">
+<meta charset="utf-8">
+<title>ミスキーのプロフィール情報を取得する</title>
+<meta name="description" content="mpurseのアドレスがあれば投げモナボタンを作る。">
+<meta name="author" content="ytyaru">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/deed.ja">
+<link rel="icon" href="assets/image/avator.png">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/toot-dialog.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content="ytyaru" />
+<meta property="og:title" content="ミスキーのプロフィール情報を取得する" />
+<meta property="og:description" content="mpurseのアドレスがあれば投げモナボタンを作る。" />
+<meta property="og:image" content="https://ytyaru.github.io/Html.Misskey.Account.Info.20220611155603/asset/image/eye-catch.png" />
+<meta property="article:published_time" content="2022-06-11T14:30:00+09:00" />
+<meta property="article:author" content="https://ytyaru.github.io/" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Article",
+    "author": {
+      "@type": "Person",
+      "name": "ytyaru",
+      "url": "https://ytyaru.github.io/",
+      "sameAs": [
+        "https://twitter.com/ytyaru1",
+        "https://github.com/ytyaru",
+        "https://profile.hatena.ne.jp/ytyaru/",
+        "https://mstdn.jp/@ytyaru",
+        "https://pawoo.net/@ytyaru_pawoo",
+        "https://www.pixiv.net/users/53831310",
+        "https://monaledge.com/user/MEHCqJbgiNERCH3bRAtNSSD9uxPViEX1nu",
+        "https://web3.askmona.org/user/1590",
+      ]
+    },
+    "dateModified": "2022-06-11T14:30:00+09:00",
+    "datePublished": "2022-06-11T14:30:00+09:00",
+    "headline": "ミスキーのプロフィール情報を取得する",
+    "image": ["https://ytyaru.github.io/Html.Misskey.Account.Info.20220611155603/asset/image/eye-catch.png"]
+  }
+</script>
+<link rel="webmention" href="https://webmention.io/ytyaru.github.io/webmention" />
+<link rel="pingback" href="https://webmention.io/ytyaru.github.io/xmlrpc" />
+<link rel="me" href="https://twitter.com/ytyaru1">
+<link rel="me" href="https://mstdn.jp/@ytyaru">
+<link rel="me" href="https://pawoo.net/@ytyaru_pawoo">
+<link rel="me" href="https://misskey.io/@ytyaru">
+<link rel="me" href="https://misskey.dev/@ytyaru">
+<link rel="me" href="https://github.com/ytyaru">
+<link rel="me" href="https://profile.hatena.ne.jp/ytyaru/">
+<link rel="me" href="https://ytyaru.hatenablog.com/">
+<link rel="me" href="https://www.pixiv.net/users/53831310">
+<link rel="me" href="https://monaledge.com/user/MEHCqJbgiNERCH3bRAtNSSD9uxPViEX1nu">
+<link rel="me" href="https://web3.askmona.org/user/1590">
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="./lib/tingle/0.16.0/tingle.js"></script>
+<link rel="stylesheet" href="./lib/tingle/0.16.0/tingle.css">
+<!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">-->
+<link rel="stylesheet" type="text/css" href="./lib/toastify/1.11.2/min.css">
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>-->
+<script type="text/javascript" src="./lib/toastify/1.11.2/min.js"></script>
+<script src="js/toaster.js"></script>
+<script src="js/rest-client.js"></script>
+<script src="js/misskey-rest-client.js"></script>
+<script src="js/misskey-authorizer-oauth.js"></script>
+<script src="js/misskey-authorizer-miauth.js"></script>
+<script src="js/misskey-api-client.js"></script>
+
+<!--
+<script src="js/misskey-note-button.js"></script>
+<script src="js/misskey-note-dialog.js"></script>
+-->
+<script src="js/webmention-requester.js"></script>
+
+<script src="js/mastodon-rest-client.js"></script>
+<script src="js/mastodon-authorizer.js"></script>
+<script src="js/mastodon-api-client.js"></script>
+<!--<script src="js/tooter.js"></script>-->
+<!--
+<script src="js/toot-button.js"></script>
+<script src="js/toot-dialog.js"></script>
+-->
+<script src="js/comment.js"></script>
+<script src="js/tweet-button.js"></script>
+<script src="js/mention-section.js"></script>
+<script src="js/mpurse-send-button.js"></script>
+
+<script src="js/profile-generator.js"></script>
+<script src="js/misskey-profile-generator.js"></script>
+
+<script src="js/main.js"></script>
+</head>
+<body>
+<h1>ミスキーのプロフィール情報を取得する</h1>
+<p>　もしプロフィールの中にmpurseのアドレスらしき文字列があれば投げモナボタンを作る。</p>
+<p>　プロフィール補足情報のラベルが「モナコイン」または「MONACOIN」であり、かつその値がmpurseのアドレスらしき文字列であった場合も、同じく投げモナボタンを作る。</p>
+<form>
+    <fieldset>
+    <legend>アカウント情報を取得する</legend>
+    <label>ミスキー・インスタンスのドメイン名またはURL：<input id="misskey-instance" value="misskey.io" placeholder="misskey.io" list="misskey-instance-candidate" autocomplete="on"></label>
+    <datalist id="misskey-instance-candidate">
+        <option value="misskey.io">misskey.io</option>
+        <option value="misskey.dev">misskey.dev</option>
+    </datalist>
+    <button id="get-account" type="button">認証してアカウント情報を取得する</button>
+    <output id="get-account-result"></output>
+    </fieldset>
+</form>
+
+<output id="export">
+</output>
+
+<footer><a href="https://ytyaru.github.io/" title="著者"><img src="./asset/image/avator.png" width="64" height="64">ytyaru</a><mpurse-send-button to="MEHCqJbgiNERCH3bRAtNSSD9uxPViEX1nu" img="coin-monar"></mpurse-send-button><a href="https://ytyaru.github.io/Html.Mpurse.Api.20220517160403/setup.html" title="モナコインを使うには">？</a></footer>
+
+<tweet-button text="いいね！\n"></tweet-button>
+<toot-dialog domain="mstdn.jp pawoo.net" status="いいね！"></toot-dialog>
+<misskey-note-dialog domain="misskey.io misskey.dev" status="いいね！"></misskey-note-dialog>
+<mention-section></mention-section>
+</body>
+</html>
+

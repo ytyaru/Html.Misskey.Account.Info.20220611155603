@@ -1,0 +1,88 @@
+@charset "utf-8";
+/*
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    --line-of-chars:40;
+    font-size: calc(100vw / (var(--line-of-chars)));
+}
+img.icon {
+    width: 1em;
+    height: 1em;
+}
+*/
+#content {
+    display: flex;
+}
+#content-left {
+    width: 70%;
+    heigth: 100%;
+}
+#content-right {
+    width: 30%;
+    heigth: 100%;
+}
+a {
+    display: inline-block;
+}
+object {
+    pointer-events: none;
+}
+.checkered-pattern {
+    background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+    background-size: 50px 50px;
+    background-position: 0 0, 0 25px, 25px -25px, -25px 0px;
+}
+kbd {
+    font-family: Consolas, "Lucida Console", monospace;
+    display: inline-block;
+    padding: 0.25em;
+    border-radius: 0.25em;
+    background: #eee;
+    box-shadow: 1px 1px 1px #777;
+}
+@media (prefers-color-scheme:light){
+body {
+    background-color: #fff;
+    color: #000;
+}
+kbd {
+    background: #eee;
+    color: #000;
+}
+.checkered-pattern {
+    background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+    background-size: 50px 50px;
+    background-position: 0 0, 0 25px, 25px -25px, -25px 0px;
+}
+}
+@media (prefers-color-scheme:dark){
+body {
+    background-color: #000;
+    color: #fff;
+}
+kbd {
+    background: #666;
+    color: #fff;
+}
+a { color: #ff0; }
+.checkered-pattern {
+    background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+    background-size: 50px 50px;
+    background-position: 0 0, 0 25px, 25px -25px, -25px 0px;
+    background-color: #000;
+}
+}
+.tippy-box[data-theme~="custom"] {
+  background-color: #f7f7f7;
+  color: black;
+  border: 1px solid #ededed;
+  border-radius: 0;
+}
+.tippy-arrow { background-color: #f7f7f7; }
+footer, footer iframe, footer a, footer img {
+    text-align: center;
+    vertical-align: middle;
+}

@@ -1,0 +1,43 @@
+#toot-dialog {
+    top: 2.5%;
+    left: 2.5%;
+    padding: 0.25em;
+    margin: 0;
+    width: 90%;
+    height: 80%;
+    border: 4mm ridge rgba(211, 220, 50, .6);
+}
+#toot-dialog #status {
+    padding: 0.25em;
+    margin-bottom: 0.5em;
+    border: thick solid green;
+    border-radius: 0.5em;
+    outline: none;
+    background-color: #DDDDDD;
+}
+#toot-dialog #status:focus {
+    padding: 0.25em;
+    border: thick solid green;
+    border-radius: 0.5em;
+    background-color: #FFFFFF;
+    outline: none;
+}
+#toot-dialog textarea {
+    width: 200px;
+    height: 200px;
+}
+#toot-dialog a:focus img {
+    border: thick double #32a1ce;
+}
+#toot-button {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: visible;
+    cursor: pointer;
+}
+

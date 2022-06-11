@@ -1,0 +1,6 @@
+.toastify { /* dialog よりも手前に表示したい */
+    z-index: 9;
+}
+#toot-dialog {
+    z-index: 1;
+}
